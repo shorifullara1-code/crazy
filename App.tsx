@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Clients from './components/Clients';
 import Services from './components/Services';
 import Products from './components/Products';
 import Pricing from './components/Pricing';
@@ -77,6 +78,9 @@ const App: React.FC = () => {
         <div id="home">
           <Hero />
         </div>
+
+        {/* Clients Section */}
+        <Clients />
         
         <div id="about">
           <About />
