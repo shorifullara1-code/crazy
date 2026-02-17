@@ -16,6 +16,17 @@ const Hero: React.FC = () => {
           
           {/* Text Content - Safe mode: removed opacity-0 */}
           <div className="lg:w-1/2 text-center lg:text-left animate-fade-in-up" style={{ animationFillMode: 'forwards' }}>
+            
+            {/* Owner/Developer Heading - Added as requested */}
+            <div className="mb-10 pb-8 border-b border-slate-800">
+              <h1 className="font-heading text-4xl lg:text-6xl font-extrabold text-white leading-tight">
+                Owner And Developer <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-purple-400">
+                  Shoriful Islam
+                </span>
+              </h1>
+            </div>
+
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 border border-slate-700 text-brand-accent text-sm font-semibold mb-6">
               <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
@@ -24,12 +35,12 @@ const Hero: React.FC = () => {
               Innovating Future Education
             </div>
             
-            <h1 className="font-heading text-4xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            <h2 className="font-heading text-3xl lg:text-5xl font-bold text-slate-200 leading-tight mb-6">
               Transforming Ideas into <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-purple-400">
+              <span className="text-slate-400">
                 Digital Reality
               </span>
-            </h1>
+            </h2>
             
             <p className="text-lg text-slate-400 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
               We are <strong>Crazy Soul Solution</strong>. We build world-class College Management Software and stunning websites to help your business grow in the digital era.
