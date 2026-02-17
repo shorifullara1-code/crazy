@@ -17,14 +17,25 @@ const Navbar: React.FC = () => {
     { name: 'Home', href: '#home' },
   ];
 
+  const scrollingText = "This Website IS Owned By SHoriful ISlam,,And Crazy Soul Solution Is Estd ON Savar";
+
   return (
     <div className="fixed top-0 left-0 w-full z-50 flex flex-col">
       {/* Scrolling Text Bar */}
-      <div className="bg-brand-accent text-white py-2 overflow-hidden relative shadow-md z-50">
-        <div className="container mx-auto px-6 relative overflow-hidden h-6 flex items-center">
-             <div className="animate-marquee whitespace-nowrap absolute w-full font-bold text-sm tracking-wide">
-                This Website IS Owned By SHoriful ISlam,,And Crazy Soul Solution Is Estd ON Savar
-             </div>
+      <div className="bg-brand-accent text-white py-2 overflow-hidden relative shadow-md z-50 flex">
+        {/* Ticker Set 1 */}
+        <div className="animate-marquee whitespace-nowrap flex shrink-0 min-w-full items-center">
+             <span className="mx-8 font-bold text-sm tracking-wide">{scrollingText}</span>
+             <span className="mx-8 font-bold text-sm tracking-wide">{scrollingText}</span>
+             <span className="mx-8 font-bold text-sm tracking-wide">{scrollingText}</span>
+             <span className="mx-8 font-bold text-sm tracking-wide">{scrollingText}</span>
+        </div>
+        {/* Ticker Set 2 (Duplicate for seamless loop) */}
+        <div className="animate-marquee whitespace-nowrap flex shrink-0 min-w-full items-center" aria-hidden="true">
+             <span className="mx-8 font-bold text-sm tracking-wide">{scrollingText}</span>
+             <span className="mx-8 font-bold text-sm tracking-wide">{scrollingText}</span>
+             <span className="mx-8 font-bold text-sm tracking-wide">{scrollingText}</span>
+             <span className="mx-8 font-bold text-sm tracking-wide">{scrollingText}</span>
         </div>
       </div>
 
