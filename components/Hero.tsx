@@ -14,9 +14,9 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           
-          {/* Text Content */}
-          <div className="lg:w-1/2 text-center lg:text-left reveal">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 border border-slate-700 text-brand-accent text-sm font-semibold mb-6 animate-fade-in-up">
+          {/* Text Content - Uses animate-fade-in-up for instant load */}
+          <div className="lg:w-1/2 text-center lg:text-left animate-fade-in-up opacity-0" style={{ animationFillMode: 'forwards' }}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 border border-slate-700 text-brand-accent text-sm font-semibold mb-6">
               <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
@@ -24,18 +24,18 @@ const Hero: React.FC = () => {
               Innovating Future Education
             </div>
             
-            <h1 className="font-heading text-4xl lg:text-6xl font-bold text-white leading-tight mb-6 reveal delay-100">
+            <h1 className="font-heading text-4xl lg:text-6xl font-bold text-white leading-tight mb-6">
               Transforming Ideas into <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-purple-400">
                 Digital Reality
               </span>
             </h1>
             
-            <p className="text-lg text-slate-400 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed reveal delay-200">
+            <p className="text-lg text-slate-400 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
               We are <strong>Crazy Soul Solution</strong>. We build world-class College Management Software and stunning websites to help your business grow in the digital era.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 reveal delay-300">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <a 
                 href="#products" 
                 className="w-full sm:w-auto px-8 py-4 bg-brand-accent hover:bg-indigo-500 text-white rounded-xl font-semibold flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-1"
@@ -53,8 +53,8 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Visual/Image */}
-          <div className="lg:w-1/2 relative reveal delay-200">
+          {/* Visual/Image - Uses delay for staggered effect */}
+          <div className="lg:w-1/2 relative animate-fade-in-up-delay opacity-0" style={{ animationFillMode: 'forwards' }}>
             <div className="relative rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-2 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 animate-float">
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-brand-accent rounded-full opacity-20 blur-xl"></div>
               <img 

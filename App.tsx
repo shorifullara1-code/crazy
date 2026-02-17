@@ -43,9 +43,19 @@ const App: React.FC = () => {
     const elements = document.querySelectorAll('.reveal');
     elements.forEach(el => observer.observe(el));
 
+    // Fallback: Ensure elements are visible if observer fails or on slow load
+    const timeoutId = setTimeout(() => {
+      document.querySelectorAll('.reveal').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add('active');
+        }
+      });
+    }, 1000);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       observer.disconnect();
+      clearTimeout(timeoutId);
     };
   }, []);
 
