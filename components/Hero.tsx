@@ -14,8 +14,8 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           
-          {/* Text Content - Uses animate-fade-in-up for instant load */}
-          <div className="lg:w-1/2 text-center lg:text-left animate-fade-in-up opacity-0" style={{ animationFillMode: 'forwards' }}>
+          {/* Text Content - Safe mode: removed opacity-0 */}
+          <div className="lg:w-1/2 text-center lg:text-left animate-fade-in-up" style={{ animationFillMode: 'forwards' }}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 border border-slate-700 text-brand-accent text-sm font-semibold mb-6">
               <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
@@ -53,8 +53,8 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Visual/Image - Uses delay for staggered effect */}
-          <div className="lg:w-1/2 relative animate-fade-in-up-delay opacity-0" style={{ animationFillMode: 'forwards' }}>
+          {/* Visual/Image */}
+          <div className="lg:w-1/2 relative animate-fade-in-up-delay" style={{ animationFillMode: 'forwards' }}>
             <div className="relative rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-2 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 animate-float">
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-brand-accent rounded-full opacity-20 blur-xl"></div>
               <img 
