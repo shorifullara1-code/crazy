@@ -1,16 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Clients from './components/Clients';
-import Services from './components/Services';
-import Products from './components/Products';
-import Pricing from './components/Pricing';
-import About from './components/About';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { ArrowUp } from 'lucide-react';
 
-const App: React.FC = () => {
+import Home from './pages/Home';
+import AboutPage from './pages/About';
+import ServicesPage from './pages/Services';
+import ProductsPage from './pages/Products';
+import PricingPage from './pages/Pricing';
+import ClientsPage from './pages/Clients';
+import VisionPage from './pages/Vision';
+import ContactPage from './pages/Contact';
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
+
+const AppContent: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -37,34 +50,19 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-900 text-white selection:bg-brand-accent selection:text-white">
       <Navbar />
+      <ScrollToTop />
       
       <main>
-        <div id="home">
-          <Hero />
-        </div>
-
-        {/* Clients Section */}
-        <Clients />
-        
-        <div id="pricing">
-          <Pricing />
-        </div>
-
-        <div id="about">
-          <About />
-        </div>
-
-        <div id="products">
-          <Products />
-        </div>
-
-        <div id="services">
-          <Services />
-        </div>
-
-        <div id="contact">
-          <Contact />
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/clients" element={<ClientsPage />} />
+          <Route path="/vision" element={<VisionPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
       </main>
 
       <Footer />
@@ -80,6 +78,14 @@ const App: React.FC = () => {
         <ArrowUp className="w-6 h-6" />
       </button>
     </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 };
 
