@@ -1,11 +1,12 @@
 import React from 'react';
 import { Target, Users, Zap } from 'lucide-react';
+import { Reveal, StaggerContainer, StaggerItem } from './Reveal';
 
 const About: React.FC = () => {
   return (
     <section className="py-20 bg-slate-800/50">
       <div className="container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16 reveal">
+        <Reveal width="100%" className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-4">
             Who We Are
           </h2>
@@ -15,9 +16,9 @@ const About: React.FC = () => {
             We specialize in creating intuitive management systems for educational institutions and crafting 
             beautiful, high-performance websites for businesses of all sizes.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <StaggerContainer className="grid md:grid-cols-3 gap-8">
           {[
             {
               icon: <Target className="w-8 h-8 text-blue-400" />,
@@ -35,9 +36,9 @@ const About: React.FC = () => {
               desc: "A crazy talented group of developers, designers, and strategists working for your success."
             }
           ].map((item, idx) => (
-            <div 
+            <StaggerItem 
               key={idx} 
-              className={`bg-slate-900 p-8 rounded-2xl border border-slate-800 hover:border-brand-accent/50 transition-all duration-300 group hover:-translate-y-2 reveal delay-${(idx + 1) * 100}`}
+              className="bg-slate-900 p-8 rounded-2xl border border-slate-800 hover:border-brand-accent/50 transition-all duration-300 group hover:-translate-y-2"
             >
               <div className="w-14 h-14 bg-slate-800 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 {item.icon}
@@ -46,9 +47,9 @@ const About: React.FC = () => {
               <p className="text-slate-400 leading-relaxed">
                 {item.desc}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

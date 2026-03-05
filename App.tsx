@@ -25,44 +25,8 @@ const App: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
 
-    // Scroll Animation Logic (Intersection Observer)
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    const elements = document.querySelectorAll('.reveal');
-    elements.forEach(el => observer.observe(el));
-
-    // Fallback: Force reveal after 100ms just in case
-    const timeoutId1 = setTimeout(() => {
-      document.querySelectorAll('.reveal').forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight) {
-          el.classList.add('active');
-        }
-      });
-    }, 100);
-
-    // Secondary fallback for slower loads
-    const timeoutId2 = setTimeout(() => {
-      document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
-    }, 1000);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      observer.disconnect();
-      clearTimeout(timeoutId1);
-      clearTimeout(timeoutId2);
     };
   }, []);
 
@@ -82,16 +46,16 @@ const App: React.FC = () => {
         {/* Clients Section */}
         <Clients />
         
+        <div id="pricing">
+          <Pricing />
+        </div>
+
         <div id="about">
           <About />
         </div>
 
         <div id="products">
           <Products />
-        </div>
-
-        <div id="pricing">
-          <Pricing />
         </div>
 
         <div id="services">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Globe, ShoppingCart, Smartphone, Database, Search, Palette } from 'lucide-react';
+import { Reveal, StaggerContainer, StaggerItem } from './Reveal';
 
 const Services: React.FC = () => {
   const services = [
@@ -44,21 +45,20 @@ const Services: React.FC = () => {
   return (
     <section className="py-20 bg-slate-800/30">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 reveal">
+        <Reveal width="100%" className="text-center mb-16">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-4">
             Our Premium Services
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
             Beyond our management software, we offer a full suite of digital services to elevate your brand presence.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, idx) => (
-            <div 
+            <StaggerItem 
               key={idx} 
-              className="bg-slate-900/50 p-8 rounded-2xl hover:bg-slate-800 transition-all duration-300 group border border-transparent hover:border-slate-700 reveal"
-              style={{ transitionDelay: `${idx * 100}ms` }}
+              className="bg-slate-900/50 p-8 rounded-2xl hover:bg-slate-800 transition-all duration-300 group border border-transparent hover:border-slate-700"
             >
               <div className={`w-14 h-14 rounded-xl bg-slate-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg ${service.color}`}>
                 {service.icon}
@@ -69,9 +69,9 @@ const Services: React.FC = () => {
               <p className="text-slate-400 text-sm leading-relaxed">
                 {service.desc}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Check, Info, Server } from 'lucide-react';
+import { Reveal, StaggerContainer, StaggerItem } from './Reveal';
 
 const Pricing: React.FC = () => {
   const plans = [
     {
       name: "Starter Package",
-      studentLimit: "Up to 200 Students",
-      price: "2,000",
-      installation: "4,000",
+      studentLimit: "Up to 300 Students",
+      price: "5,000",
+      installation: "10,000",
       description: "Essential modules for small colleges to digitize records and exams.",
       features: [
         "Student & Staff Database",
@@ -20,9 +21,9 @@ const Pricing: React.FC = () => {
     },
     {
       name: "Standard Package",
-      studentLimit: "200 - 400 Students",
-      price: "4,000",
-      installation: "10,000",
+      studentLimit: "300 - 600 Students",
+      price: "8,000",
+      installation: "15,000",
       isPopular: true,
       description: "Advanced automation with Mobile App and SMS for growing campuses.",
       features: [
@@ -37,9 +38,9 @@ const Pricing: React.FC = () => {
     },
     {
       name: "Premium Package",
-      studentLimit: "400 - 800 Students",
-      price: "6,000",
-      installation: "30,000",
+      studentLimit: "600 - 800 Students",
+      price: "15,000",
+      installation: "20,000",
       description: "Full-scale ERP with website integration and specialized modules.",
       features: [
         "All Standard Features",
@@ -59,7 +60,7 @@ const Pricing: React.FC = () => {
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16 reveal">
+        <Reveal width="100%" className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-brand-accent font-bold tracking-wider uppercase text-sm mb-2 block">Transparent Pricing</span>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-4">
             College Management Software Pricing
@@ -67,13 +68,13 @@ const Pricing: React.FC = () => {
           <p className="text-slate-400 text-lg">
             Affordable monthly subscription plans tailored for your institution's size and needs.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <StaggerContainer className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {plans.map((plan, idx) => (
-            <div 
+            <StaggerItem 
               key={idx} 
-              className={`relative bg-slate-800 rounded-2xl p-8 border-2 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl reveal delay-${idx * 200} ${
+              className={`relative bg-slate-800 rounded-2xl p-8 border-2 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
                 plan.isPopular ? 'border-brand-accent shadow-xl shadow-indigo-500/10' : 'border-slate-700 hover:border-slate-600'
               }`}
             >
@@ -121,18 +122,18 @@ const Pricing: React.FC = () => {
               >
                 Choose {plan.name}
               </button>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
-        <div className="mt-12 text-center reveal delay-400">
+        <Reveal width="100%" delay={0.4} className="mt-12 text-center">
           <div className="inline-flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-full border border-slate-700">
             <Info className="w-5 h-5 text-blue-400" />
             <p className="text-slate-400 text-sm">
               Need a custom plan for <strong>800+ students</strong>? <a href="#contact" className="text-brand-accent font-bold hover:underline">Contact us</a> for enterprise pricing.
             </p>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

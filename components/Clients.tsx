@@ -1,5 +1,6 @@
 import React from 'react';
 import { Crown, GraduationCap, BookOpen, Award } from 'lucide-react';
+import { Reveal } from './Reveal';
 
 const Clients: React.FC = () => {
   const clients = [
@@ -37,14 +38,14 @@ const Clients: React.FC = () => {
 
   return (
     <section className="py-12 bg-slate-900 border-y border-slate-800 relative overflow-hidden">
-      <div className="container mx-auto px-6 mb-8 text-center reveal">
+      <Reveal width="100%" className="container mx-auto px-6 mb-8 text-center">
         <p className="text-brand-accent font-bold tracking-widest uppercase text-xs mb-2">
           Trusted Partners
         </p>
         <h2 className="text-2xl md:text-3xl font-heading font-bold text-white">
           Our Valued Clients
         </h2>
-      </div>
+      </Reveal>
 
       {/* Marquee Container */}
       <div className="relative flex overflow-hidden group">
